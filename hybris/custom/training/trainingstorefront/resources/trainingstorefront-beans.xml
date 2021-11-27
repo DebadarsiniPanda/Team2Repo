@@ -3,7 +3,22 @@
  Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
 -->
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="beans.xsd">
+    <!-- Example Data POJO -->
+        <bean class="com.hybris.training.data.DummyData">
+            <property name="message" type="String"/>
+            <property name="id" type="Integer"/>
+            <property name="name" type="String"/>
+            <property name="dummyDescription" type="String"/>
+        </bean>
+        <!-- Example Data POJO -->
+        <bean class="com.hybris.training.data.TraineeData">
+            <property name="traineeId" type="Integer"/>
+            <property name="traineeName" type="String"/>
+            <property name="qualification" type="String"/>
+            <property name="city" type="String"/>
+            <property name="phoneNo" type="String"/>
+            <property name="courseName" type="String"/>
+        </bean>
 
-	
 
-</beans>
+    </beans>
