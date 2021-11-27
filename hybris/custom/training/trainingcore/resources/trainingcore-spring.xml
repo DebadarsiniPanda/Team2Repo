@@ -538,4 +538,21 @@
 		<property name="itemCleanupHooks" ref="csTicketRetentionHooks"/>
 		<property name="ticketBusinessService" ref="ticketBusinessService"/>
 	</bean>
+	<!--Cronjob BeanA-->
+	<bean id="myJobPerformable" class="com.hybris.training.core.job.MyJobPerformable"
+		  parent="abstractJobPerformable">
+		<property name="flexibleSearchService" ref="flexibleSearchService"/>
+		<property name="modelService" ref="modelService"/>
+	</bean>
+	<!--Dao -->
+	<bean id="testDao" class="com.hybris.training.core.daos.impl.TestDaoImpl">
+		<property name="flexibleSearchService" ref="flexibleSearchService"/>
+	</bean>
+	<alias name="testServiceImpl" alias="testService"/>
+	<bean id="testServiceImpl" class="com.hybris.training.core.services.impl.TestServiceImpl"/>
+
+	<!--traineeDao-->
+	<bean id="traineeDao" class="com.hybris.training.core.daos.impl.TraineeDaoImpl" />
+	<bean id="traineeService" class="com.hybris.training.core.services.impl.TraineeServiceImpl" />
+
 </beans>

@@ -6,6 +6,7 @@
 
     <collectiontypes>
         <collectiontype code="GenderList" elementtype="Gender" autocreate="true" generate="true" type="list"/>
+        <collectiontype code="DummyEntryList" elementtype="DummyTable" autocreate="true" generate="true" type="list"/>
         <collectiontype code="SwatchColorSet" elementtype="SwatchColorEnum" autocreate="true" generate="true"
                         type="set"/>
     </collectiontypes>
@@ -30,6 +31,121 @@
     <itemtypes>
 
         <!-- Add your item definitions here -->
+        <!--Cronjob ceation -->
+        <itemtype generate="true"
+                  code="HelloWorldCronJob"
+                  jaloclass="com.hybris.training.core.jalo.HelloWorldCronJob"
+                  extends="CronJob"
+                  autocreate="true">
+        </itemtype>
+        <!-- Dummy Table creation -->
+        <itemtype code="DummyTable" extends="Product"
+                  autocreate="true" generate="true"
+                  jaloclass="com.hybris.training.core.jalo.DummyTable">
+            <description>Dummy Table.</description>
+            <attributes>
+                <attribute qualifier="dummyMessage" type="java.lang.String">
+                    <description>Dummy Message</description>
+                    <modifiers/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="dummyId" type="java.lang.Integer">
+                    <description>Dummy Id</description>
+                    <modifiers/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="dummyName" type="java.lang.String">
+                    <description>Dummy Name</description>
+                    <modifiers/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="dummyDescription" type="java.lang.String">
+                    <description>Descriptions</description>
+                    <modifiers/>
+                    <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+
+        <!--DummyTables Creation-->
+        <itemtype generate="true" code="SampleTable" extends="GenericItem" autocreate="true">
+            <deployment table="SampleTable" typecode="22065"/>
+            <attributes>
+                <attribute qualifier="dummyMessage" type="java.lang.String">
+                    <description>Product Message</description>
+                    <modifiers/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="dummyId" type="java.lang.Integer">
+                    <description>Product Id</description>
+                    <modifiers/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="dummyName" type="java.lang.String">
+                    <description>Product Name</description>
+                    <modifiers/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="descriptions" type="java.lang.String">
+                    <description>Product Description</description>
+                    <modifiers/>
+                    <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+
+        <!-- Test Question-->
+        <itemtype generate="true" code="Trainee" extends="GenericItem" autocreate="true">
+            <deployment table="Trainee" typecode="22066"/>
+            <attributes>
+                <attribute qualifier="traineeId" type="java.lang.Integer">
+                    <description>Trainee Id</description>
+                    <modifiers/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="name" type="java.lang.String">
+                    <description>Trainee Name</description>
+                    <modifiers/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="qualification" type="java.lang.String">
+                    <description>Qualification</description>
+                    <modifiers/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="city" type="java.lang.String">
+                    <description>City</description>
+                    <modifiers/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="phoneNo" type="java.lang.String">
+                    <description>PhoneNo</description>
+                    <modifiers/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="courseName" type="java.lang.String">
+                    <description>CourseName</description>
+                    <modifiers/>
+                    <persistence type="property"/>
+                </attribute>
+
+            </attributes>
+        </itemtype>
+
+
+
+        <typegroup name="Cart">
+        <itemtype code="Cart" autocreate="false" generate="false">
+        <description>Extending Cart type with additional attributes for saved cart functionality</description>
+        <attributes>
+            <attribute autocreate="true" qualifier="dummyEntries" type="DummyEntryList" >
+                <description>List of Data Entries that the ApparelProduct is designed for</description>
+                <persistence type="property"/>
+                <modifiers/>
+            </attribute>
+        </attributes>
+        </itemtype>
+        </typegroup>
 
 
         <!-- TypeGroups are for structure of this file only -->
